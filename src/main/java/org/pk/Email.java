@@ -21,7 +21,7 @@ public class Email {
         this.password = randompassword(this.defaultPassLen);
 
         this.email = this.firstName.toLowerCase() + this.lastName.toLowerCase() + "@" +this.department.toLowerCase() + companySuffix;
-        System.out.println("\nEmail\n" + this.email);
+        // System.out.println("\nEmail\n" + this.email);
     }
 
     private String setDepartment() {
@@ -77,5 +77,11 @@ public class Email {
 
     public String getEmail() {
         return this.email;
+    }
+
+    public String showInfo() {
+        return "NAME : " + this.firstName + this.lastName + 
+        "\nCOMPANY MAIL : " + this.email +
+        "\nMAILBOX SIZE : " + this.mailboxCapacity + " mb";
     }
 }
