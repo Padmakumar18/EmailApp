@@ -6,12 +6,18 @@ public class Email {
     private String firstName;
     private String lastName;
     private String password;
-    private String departmant;
+    private String department;
     private int mailboxCapacity;
+    private int defaultPassLen = 8;
 
     public Email(String firstName , String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
+
+        this.department = setDepartment();
+        
+        this.password = randompassword(this.defaultPassLen);
+        System.out.println(this.password);
     }
 
     private String setDepartment() {
@@ -29,5 +35,15 @@ public class Email {
             default:
                 return  "";
         }
+    }
+
+    private String randompassword(int len) {
+        String passwordSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789!@#$%^&*()_+";
+        char[] pass = new char[len];
+        for (int i = 0; i < len; i++) {
+            int ran = (int)(Math.random()*passwordSet.length());
+            pass[i] = passwordSet.charAt(ran);
+         }
+         return new String(pass);
     }
 }
